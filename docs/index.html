@@ -16,20 +16,18 @@
     <script src="//unpkg.com/docsify-edit-on-github/index.js"></script>
     <script>
     window.$docsify = {
-      search: {
-        paths: 'auto',
-        placeholder: 'Type to search',
-        noData: 'No Results!',
-        // Headline depth, 1 - 6
-        depth: 2,
-        hideOtherSidebarContent: false
-      },
       disqus: 'mypowershellsetup',
       loadSidebar: true,
       basePath: '/MyPowerShellSetup/',
       subMaxLevel: 2,
+      maxLevel: 4
       name: 'My PowerShell Setup',
       repo: 'https://github.com/DBremen/MyPowerShellSetup',
+       search: {
+        paths: 'auto',
+        placeholder: 'Search',
+        noData: 'No Results.',
+      },
       plugins: [
         EditOnGithubPlugin.create('https://github.com/DBremen/MyPowerShellSetup/blob/master/docs/')
       ]
