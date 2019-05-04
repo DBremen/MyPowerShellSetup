@@ -18,9 +18,9 @@
     window.$docsify = {
       search: 'auto',
         search : [
-      '/',            // => /README.md
-      '/topic1',       
-      '/topic2',
+      '/MyPowerShellSetup/',            // => /README.md
+      '/MyPowerShellSetup/topic1',       
+      '/MyPowerShellSetup/topic2',
     ],
 
     // complete configuration parameters
@@ -31,11 +31,7 @@
       noData: 'No Results!',
       // Headline depth, 1 - 6
       depth: 2,
-      hideOtherSidebarContent: false, // whether or not to hide other sidebar content
-
-      // To avoid search index collision
-      // between multiple websites under the same domain
-      namespace: 'website-1',
+      hideOtherSidebarContent: false
     },
       disqus: 'mypowershellsetup',
       loadSidebar: true,
@@ -44,7 +40,7 @@
       name: 'My PowerShell Setup',
       repo: 'https://github.com/DBremen/MyPowerShellSetup',
       plugins: [
-        EditOnGithubPlugin.create('https://github.com/DBremen/MyPowerShellSetupblob/master/docs/')
+        EditOnGithubPlugin.create('https://github.com/DBremen/MyPowerShellSetup/blob/master/docs/')
       ]
     }
   </script>
