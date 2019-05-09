@@ -1,4 +1,4 @@
-> ### List of utilities and configurations used on the command-line
+> ### List of none-PowerShell utilities used on the command-line
 I have customized several of those to my own needs. The customizations are part of this repository and are mentioned in other topics.
 [This](https://dev.to/_darrenburns/10-tools-to-power-up-your-command-line-4id4) article series (links are the dots at the top of the page) has a nice summary of the Linux/Unix version of many of the tools listed below. 
 The installation is either done via Install-Module or [chocolatey](https://chocolatey.org) (Chocolatey installations can be also done through Install-Package see [here](https://www.petri.com/what-is-chocolatey-and-should-i-use-it-in-my-environment)).
