@@ -8,4 +8,5 @@ The installation is either done via Install-Module or [chocolatey](https://choco
 | z | [GitHub](https://github.com/vincpa/z) | Change directory based on partial matches of previously visited folders | Install-Module -Name z |
 | PSFzf | [GitHub](https://github.com/kelleyma49/PSFzf) | PowerShell port of fzf -> Fuzzy finder with integration for PSReadLine | Install-Module -Name PSFzf |
 | bat | [GitHub](https://github.com/sharkdp/bat) | View files with syntax highlighting (aliased to cat on my system) | choco install bat -y|
-| lf | [GitHub](https://github.com/gokcehan/lf) | Ter
+| lf | [GitHub](https://github.com/gokcehan/lf) | Terminal file manager written in go (not fully functional on Windows) | choco install lf -y |
+
