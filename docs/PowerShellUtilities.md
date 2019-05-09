@@ -1,5 +1,5 @@
 > ### List of PowerShell utilities used on the command-line
-Several PowerShell modules and functions that I use to improve productivity on the PowerShell prompt. Those that I created/customized are either in a module (helpers.psm1) that I load from my profile. Or in separate .ps1/.psm1 files that I also load from my profile (from a folder called \Utils).
+Several PowerShell modules and functions that I use to improve productivity on the PowerShell prompt. Those that I created/customized are either in a module (helpers.psm1) that I load from my profile (with -DisableNameChecking). Or in separate .ps1/.psm1 files that I also load from my profile (from a folder called \Utils).
 
 | Name | Type | Source | Description | Installation |
 | --- | --- | --- | --- | --- |
@@ -13,5 +13,6 @@ Several PowerShell modules and functions that I use to improve productivity on t
 | s+ | function | via helpers.psm1 | Build a comma-separated list of quoted strings from the provided arguments | s+ function in [helpers.psm1](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1) |
 | ql | function | via helpers.psm1 | **q**uoted **l**ist -> build string array w/o the need to provide arguments in quotes | ql function in [helpers.psm1](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1) |
 | qs | function | via helpers.psm1 | **q**uoted **s**ist -> build a string based on "words" provided as an argument | qs function in [helpers.psm1](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1) |
-| Get-RegExHelp | function | via helpers.psm1 | opens a .csv file with RegEx documenation via Out-GridView | Get-RegexHelp function in [helpers.psm1](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1) and [regexHelptxt.csv](https://github.com/DBremen/MyPowerShellSetup/blob/master/files/regexHelptxt.csv) |
+| Get-RegExHelp | function | via helpers.psm1 | Opens a .csv file with RegEx documenation via Out-GridView | Get-RegexHelp function in [helpers.psm1](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1) and [regexHelptxt.csv](https://github.com/DBremen/MyPowerShellSetup/blob/master/files/regexHelptxt.csv) |
+| pro | function | via helpers.psm1 | Opens my profile (AllUsersAllHosts) in VSCode | pro function in [helpers.psm1](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1) |
 
