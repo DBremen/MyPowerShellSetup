@@ -1,7 +1,7 @@
 > ### List of PowerShell utilities used on the command-line
 Several PowerShell modules and functions that I use to improve productivity on the PowerShell prompt. Those that I created/customized are either in a module (helpers.psm1) that I load from my profile. Or in separate .ps1/.psm1 files that I also load from my profile (from a folder called \Utils).
 
-| Name | | Type | Source | Description | Installation |
+| Name | Type | Source | Description | Installation |
 | --- | --- | --- | --- |
 | ps-menu | module | [GitHub](https://github.com/chrisseroka/ps-menu) | Simple powershell menu to render interactive console menu (used to build tools) | Install-Module PS-Menu |
 | CommandNotFoundAction | function | [GitHub Gist](https://gist.github.com/Jaykul/b8ed295d32ec2500b7becfed38308521) | Implementation of 'Did you mean?' for commands typed with the option to create aliases for mistyped commands | [helpers.psm1/Measure-LevenshteinDistance and Find-ClosestCommand](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1), [profile.ps1 for CommandNotFoundAction](https://github.com/DBremen/MyPowerShellSetup/blob/master/profile.ps1) |
