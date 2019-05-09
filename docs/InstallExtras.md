@@ -7,4 +7,4 @@ Run [Install-Extras.ps1](https://github.com/DBremen/MyPowerShellSetup/blob/maste
 ## Maintaining modules/packages
 
 - GitHub only modules release packages
-- Installed Chocolatey and PowerShellGet packages/modules are updated in the file [Install-Extras.ps1](https://github.com/DBremen/MyPowerShellSetup/blob/master/WindowsSetupScripts\Install-Extras.ps1) via the script [Update-InstalledModules.ps1](https://github.com/DBremen/MyPowerShellSetup/blob/master/WindowsSetupScripts\Update-InstalledModules). The script automatically retrieves installed Chocolatey packages and PowerShellGet modules and updates the file.
+- Installed Chocolatey and PowerShellGet packages/modules are updated in the file [Install-Extras.ps1](https://github.com/DBremen/MyPowerShellSetup/blob/master/WindowsSetupScripts\Install-Extras.ps1) via the script [Update-InstalledModules.ps1](https://github.com/DBremen/MyPowerShellSetup/blob/master/WindowsSetupScripts\Update-InstalledModules.ps1). The script automatically retrieves installed Chocolatey packages and PowerShellGet modules and updates the file.
