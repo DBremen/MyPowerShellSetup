@@ -1,4 +1,5 @@
-- [Maintain and re-install list of modules/packages (PowerShellGet + GitHub + Chocolatey)](InstallExtras.md)
+- [Maintain and re-install list of packages (PowerShell + Chocolatey)](InstallExtras.md)
 - [PowerShell command-line utilities](CmdUtilities.md)
+- [PowerShell utilies](PowerShellUtilities.md)
 - [PowerShell Profile](Profile.md)
 - [PSReadLine customizations](PSReadLine.md)
