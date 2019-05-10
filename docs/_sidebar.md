@@ -3,3 +3,4 @@
 - [PowerShell utilies](PowerShellUtilities.md)
 - [PowerShell Profile](Profile.md)
 - [PSReadLine customizations](PSReadLine.md)
+- [PSFzf customizations](PSFzfCustomizations.md)
