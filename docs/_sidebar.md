@@ -4,3 +4,4 @@
 - [PowerShell Profile](Profile.md)
 - [PSReadLine customizations](PSReadLine.md)
 - [PSFzf customizations](PSFzfCustomizations.md)
+- [Search](Search.md)
