@@ -8,6 +8,7 @@ Several PowerShell modules and functions that I use to improve productivity on t
 | ps-menu | module | [GitHub](https://github.com/chrisseroka/ps-menu) | Simple powershell menu to render interactive console menu (used to build tools) | Install-Module PS-Menu |
 | Find-ClosestCommand | function | [GitHub Gist](https://gist.github.com/Jaykul/b8ed295d32ec2500b7becfed38308521) | Implementation of 'Did you mean?' for commands typed with the option to create aliases for mistyped commands via CommandNotFoundAction | [helpers.psm1/Measure-LevenshteinDistance](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1) and [Find-ClosestCommand](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1) , [profile.ps1](https://github.com/DBremen/MyPowerShellSetup/blob/master/profile.ps1) for custom CommandNotFoundAction |
 | PSColor | module | [GitHub](https://github.com/Davlind/PSColor) | Provides basic color highlighting for files, services, select-string etc. | Install-Module -Name PSColor |
+| posh-git | module | [GitHub](https://github.com/dahlbyk/posh-git) | Provides custom git prompt and general ability to customize prompt see() | Install-Module -Name posh-git |
 
 ### Modules or functions I created or customized
 
