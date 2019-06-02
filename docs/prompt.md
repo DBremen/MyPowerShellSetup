@@ -7,6 +7,8 @@ My prompt is not too fancy (e.g. no PowerLine). It is showing:
 ![image](https://github.com/DBremen/MyPowerShellSetup/blob/master/screens/prompt.PNG)
 ![image](https://github.com/DBremen/MyPowerShellSetup/blob/master/screens/ctrltscreen.PNG)
 
+![Docsify logo](https://docsify.js.org/_media/icon.svg)
+
 To get the prompt, I put the following code into my profile:
 ```powershell
 Import-Module posh-git
