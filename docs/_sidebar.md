@@ -2,6 +2,7 @@
 - [PowerShell command-line utilities](CmdUtilities.md)
 - [PowerShell utilies](PowerShellUtilities.md)
 - [PowerShell Profile](Profile.md)
+- [PowerShell Prompt](prompt.md)
 - [PSReadLine customizations](PSReadLine.md)
 - [PSFzf customizations](PSFzfCustomizations.md)
 - [Search](Search.md)
