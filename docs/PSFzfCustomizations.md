@@ -14,4 +14,4 @@ Customized PSFzf.psm1, PSFzf.psd1, PSFzf.Functions.ps1, and z.psm1 can be found 
 CTRL + t = search current directory with preview window (bat.exe):
 
 
-![image](https://github.com/DBremen/MyPowerShellSetup/blob/master/screens/ctrltscreen.PNG)
+![image](https://github.com/DBremen/MyPowerShellSetup/raw/master/screens/ctrltscreen.PNG)
