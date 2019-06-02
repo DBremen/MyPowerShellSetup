@@ -34,47 +34,101 @@ $ModulesToBeInstalled = @(
     'DirColors',
     'Emojis',
     'GetSQL',
+    'Gridify',
     'ImportExcel',
-    'ISEModuleBrowserAddon',
     'MsftGraph',
     'PackageManagement',
-    'parse-curl',
+    'Pansies',
     'PowerShellGet',
-    'ps-menu',
-    'PSColor',
-    'PSFzf',
     'PSProse',
     'PSSharedGoods',
     'PSWriteColor',
     'PSWriteHTML',
-    'ShowUI',
+    'QRCodeGenerator',
+    'scraperion',
     'TabExpansionPlusPlus',
     'UMN-Google',
-    'WPFBot3000',
-    'z',
-    'Gridify',
-    'Pester'
+    'unishell',
+    'WPFBot3000'
 )
 #//end-ModulesToBeInstalled
+# PowerShell Scripts to install
+# (Get-InstalledScript | select -expand name | foreach {"'$_'"}) -join ",`n`t" | clip
+#//start-ScriptsToBeInstalled
+$ScriptsToBeInstalled = @(
+    'Compare-ObjectProperty',
+    'Measure-LastCommand',
+    'Out-PhoneticAlphabet',
+    'Wait-Action',
+    'Write-MyProgress'
+)
+#//end-ScriptsToBeInstalled
 # Chocolatey packages to install
 #get-package
 #Register-PackageSource -Name Chocolatey -ProviderName Chocolatey -Location http://chocolatey.org/api/v2/
 #Find-Package graphviz | Install-Package -ForceBootstrap
 # (choco list --localonly --id-only | select -skiplast 1 | where {$_ -notmatch 'KB\d+' -and $_ -notmatch 'chocolatey v.*' -and $_ -notmatch '\w+[\.-]install.*'} | foreach {"'$_'"}) -join ",`n`t" | clip
 #//start-chocoToBeInstalled
-$ModulesToBeInstalled = @(
+$ChocoInstalls = @(
+    '7zip',
+    '7zip.commandline',
+    '7zip.portable',
+    'ag',
     'autohotkey',
+    'autohotkey.portable',
+    'bandizip',
+    'bat',
+    'BingDesktop',
+    'calibre',
+    'cdburnerxp',
     'chocolatey',
     'chocolatey-core.extension',
+    'chocolatey-uninstall.extension',
+    'chocolatey-visualstudio.extension',
+    'chocolatey-windowsupdate.extension',
+    'clink',
     'Cmder',
+    'doPDF',
+    'DotNet4.6.1',
+    'dotnet4.6.2',
+    'dotPeek',
+    'dropbox',
+    'everything',
     'fd',
+    'filezilla',
+    'Firefox',
     'fluent-terminal',
-    'fzf',
+    'git',
+    'hackfont-windows',
+    'hg',
+    'hyper',
+    'kdiff3',
+    'lastpass',
+    'less',
+    'LightTable',
+    'Listary',
+    'lockhunter',
+    'lua',
+    'meld',
     'nodejs',
-    'openssh',
+    'notepadplusplus',
+    'pandoc',
+    'PDFXchangeEditor',
+    'PDFXChangeViewer',
+    'peco',
     'PowerShell',
+    'python',
+    'python3',
+    'R.Project',
+    'R.Studio',
+    'reflect-free',
+    'resharper-platform',
+    'ruby',
     'scite4autohotkey',
-    'vcredist2010'
+    'screentogif',
+    'vcredist2005',
+    'vcredist2010',
+    'visualstudio2017community'
 )
 #//end-chocoToBeInstalled
 # Chocolatey places a bunch of crap on the desktop after installing or updating software. This flag allows
@@ -210,17 +264,17 @@ Function Update-SessionEnvironment {
 
     #ordering is important here, $user comes after so we can override $machine
     'Process', 'Machine', 'User' |
-    % {
+        % {
         $scope = $_
         Get-EnvironmentVariableNames -Scope $scope |
-        % {
+            % {
             Set-Item "Env:$($_)" -Value (Get-EnvironmentVariable -Scope $scope -Name $_)
         }
     }
 
     #Path gets special treatment b/c it munges the two together
     $paths = 'Machine', 'User' |
-    % {
+        % {
         (Get-EnvironmentVariable -Name 'PATH' -Scope $_) -split ';'
     } | Select-Object -Unique
     $Env:PATH = $paths -join ';'
@@ -346,12 +400,24 @@ else {
     $ModulesToBeInstalled = $ModulesToBeInstalled | Where-Object { $InstalledModules -notcontains $_ }
     if ($ModulesToBeInstalled.Count -gt 0) {
         Write-Host -ForegroundColor:cyan "Installing modules that are not already installed via powershellget. Modules to be installed = $($ModulesToBeInstalled.Count)"
-        Install-Module -Name $ModulesToBeInstalled -AllowClobber -AcceptLicense -ErrorAction:SilentlyContinue
+        Install-Script -Name $ModulesToBeInstalled -AcceptLicense -ErrorAction:SilentlyContinue
     }
     else {
         Write-Output "No modules were found that needed to be installed."
     }
+    #add scripts
+    $InstalledScripts = (Get-InstalledScript).name
+    $ScriptsToBeInstalled = $ScriptsToBeInstalled | Where-Object { $InstalledScripts -notcontains $_ }
+    if ($ScriptsToBeInstalled.Count -gt 0) {
+        Write-Host -ForegroundColor:cyan "Installing scripts that are not already installed via powershellget. Scripts to be installed = $($ScriptsToBeInstalled.Count)"
+        Install-Script -Name $ScriptsToBeInstalled -AcceptLicense -ErrorAction:SilentlyContinue
+    }
+    else {
+        Write-Output "No scripts were found that needed to be installed."
+    }
 }
+##add scripts
+
 
 if ($null -eq (get-command choco.exe -ErrorAction SilentlyContinue)) {
     Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
@@ -518,5 +584,8 @@ if ($CreatePowershellProfile) {
 }
 
 Pop-Location
+
+
+
 
 

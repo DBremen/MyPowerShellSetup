@@ -66,18 +66,18 @@ function Update-Content {
     )
     if ($EndPattern) {
         [regex]::Replace(([IO.File]::ReadAllText($Path)), "($StartPattern)([\s\S]*)($EndPattern)", "`$1`n$Content`n`$3", [Text.RegularExpressions.RegexOptions]::Multiline) |
-        Set-Content $Path
+            Set-Content $Path
     }
     else {
         #$& refers to the match when using replace
         [regex]::Replace(([IO.File]::ReadAllText($Path)), "$StartPattern", "$&`n$Content", [Text.RegularExpressions.RegexOptions]::Multiline) |
-        Set-Content $Path
+            Set-Content $Path
     }
 }
 
 #get installed PowerShell modules
 $modulesToBeInstalled = (Get-InstalledModule | Select-Object -Expand Name |
-    Where-Object { $_ -notmatch 'AzureRM\..*' } | ForEach-Object { "'$_'" }) -join ",`n`t"
+        Where-Object { $_ -notmatch 'AzureRM\..*' -and $_ -ne 'z' -and $_ -ne 'PSFZF' } | ForEach-Object { "'$_'" }) -join ",`n`t"
 $insert = @"
 `$ModulesToBeInstalled = @(
     $modulesToBeInstalled
@@ -85,12 +85,22 @@ $insert = @"
 "@
 Update-Content  $PSScriptRoot\Install-Extras.ps1 '#//start-ModulesToBeInstalled' '#//end-ModulesToBeInstalled' $insert
 
+#get installed scripts
+$scriptsToBeInstalled = (Get-InstalledScript | Select-Object -Expand Name |
+        ForEach-Object { "'$_'" }) -join ",`n`t"
+$insert = @"
+`$ScriptsToBeInstalled = @(
+    $scriptsToBeInstalled
+)
+"@
+Update-Content  $PSScriptRoot\Install-Extras.ps1 '#//start-ScriptsToBeInstalled' '#//end-ScriptsToBeInstalled' $insert
+
 #get installed chocolatey packages
 $chocoPackages = (choco list --localonly --id-only | Select-Object -skiplast 1 |
-    Where-Object { $_ -notmatch 'KB\d+' -and $_ -notmatch 'chocolatey v.*' -and $_ -notmatch '\w+[\.-]install.*' } |
-    ForEach-Object { "'$_'" }) -join ",`n`t"
+        Where-Object { $_ -notmatch 'KB\d+' -and $_ -notmatch 'chocolatey v.*' -and $_ -notmatch '\w+[\.-]install.*' } |
+        ForEach-Object { "'$_'" }) -join ",`n`t"
 $insert = @"
-`$ModulesToBeInstalled = @(
+`$ChocoInstalls = @(
     $chocoPackages
 )
 "@
