@@ -1,0 +1,1 @@
+Even though PSReadline already features a persistent history, I like to built-in History with it's additional attributes and the format of a .csv file. Therefore I like PowerShell to automatically save the current's session history (i.e. Get-History) to a file. This is achieved by the following lines sitting my profile:
