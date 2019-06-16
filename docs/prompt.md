@@ -1,3 +1,5 @@
+## Prompt
+
 My prompt is not too fancy (e.g. no PowerLine). It is showing:
 - The current history item number (to reference in Get-History -ID)
 - The execution time of the last command (see [here](https://gist.github.com/kelleyma49/bd03dfa82c37438a01b1) for the idea put in a function.)
