@@ -1,3 +1,5 @@
+## Profile
+
 I don't use Host or User specific profiles but the AllUsersAllHosts profile instead:
 
 ```powershell
