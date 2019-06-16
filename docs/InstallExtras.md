@@ -1,4 +1,4 @@
-## Summary
+## Maintaining installed packages
 
 Packages refers to PowerShell modules that can be installed via Install-Module, or Scripts that can be installed via Install-Script, or chocolatey packages. Managed via a modified version of the Install-Extras.ps1 script in ZLoeber's WindowsSetupScripts module on [GitHub](https://github.com/zloeber/WindowsSetupScripts):
 
