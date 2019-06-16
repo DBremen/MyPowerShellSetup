@@ -6,3 +6,4 @@
 - [PSReadLine customizations](PSReadLine.md)
 - [PSFzf customizations](PSFzfCustomizations.md)
 - [Search](Search.md)
+- [Persistent history](History.md)
