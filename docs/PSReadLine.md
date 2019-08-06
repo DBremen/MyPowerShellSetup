@@ -2,11 +2,12 @@
 
 Make sure latest version is installed:
 
+
 ```powershell
-Install-Module -Name PowerShellGet -Force
-Update-Module -Name PowerShellGet
-Install-Module -Name PSReadLine -Force
-Update-Module -Name PSReadLine
+# Make sure all powershell instances are closed
+gps powershell* | kill
+# Run below from "Run prompt" Windows-Key + R
+powershell -noprofile -command "Install-Module PSReadLine -Force -SkipPublisherCheck -allowprerelease"  
 ```
 
 Configuration loaded via profile [PSReadLine configuration](https://github.com/DBremen/MyPowerShellSetup/blob/master/PSReadlineConfiguration.ps1)
