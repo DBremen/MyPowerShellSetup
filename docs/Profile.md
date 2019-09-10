@@ -15,3 +15,4 @@ The [profile](https://github.com/DBremen/MyPowerShellSetup/blog/master/profile.p
 - Contains some useful PSDefaultParameterValues
 - Loads the PSReadLine Configuration
 - Imports any other module/function that I'd like to be available in my PowerShell sessions
+- Contains ScriptProperty extension (via Update-TypeData) for the String Type
