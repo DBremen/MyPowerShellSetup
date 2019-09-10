@@ -16,6 +16,21 @@ $PSDefaultParameterValues.Add('Get-Member:Force', $true)
 $PSDefaultParameterValues.Add('Format-List:Property', '*')
 $PSDefaultParameterValues.Add('Set-Location:Path', '..')
 
+Update-TypeData -TypeName System.String -MemberName "ToB64" -MemberType ScriptProperty -Value { [System.Convert]::ToBase64String([System.Text.Encoding]::UNICODE.GetBytes($this)) }
+Update-TypeData -TypeName System.String -MemberName "SplitUrl" -MemberType ScriptProperty -Value {
+    $urls = $this -split '\r?\n'
+    Add-Type -AssemblyName System.Web
+    foreach ($url in $urls) {
+        $txt = [System.Web.HttpUtility]::UrlDecode($url)
+        $txt -split '\?|\&'
+        write-host '_____________________________________'
+    }
+}
+Update-TypeData -TypeName System.String -MemberName "JoinWithQuote" -MemberType ScriptProperty -Value {
+    $result = ($this -split '\r?\n' | foreach { "'$_'" }) -join ','
+    $result
+    $result | set-clipboard
+}
 
 Remove-Item alias:cat -Force
 Set-Alias -Name cat -Value bat -Force
