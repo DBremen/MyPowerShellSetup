@@ -34,9 +34,12 @@ Update-TypeData -TypeName System.String -MemberName "JoinWithQuote" -MemberType 
 
 Remove-Item alias:cat -Force
 Set-Alias -Name cat -Value bat -Force
+# in case show-ui is used
+Remove-Item alias:menu -Force -ErrorAction SilentlyContinue
 Import-Module "$scriptDir\Utils\Utils.psm1" -DisableNameChecking
 Import-Module PSColor
 Import-Module "$scriptDir\helpers.psm1" -DisableNameChecking
+Import-Module PS-Menu
 
 #persistent history
 $HistoryFilePath = Join-Path ([Environment]::GetFolderPath('UserProfile')) history.ps_history
