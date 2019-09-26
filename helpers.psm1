@@ -213,26 +213,6 @@ function pro { ise "$([Environment]::GetFolderPath('MyDocuments'))\WindowsPowerS
 function notepad { $args | % { notepad.exe (resolve-path $_) } }
 function psscript { cd c:\scripts\ps1 }
 
-Update-TypeData  -force -TypeName System.IO.FileInfo -MemberName Size -MemberType ScriptProperty -Value { 
-    $this.length | Get-FileSize
-} 
- 
-Update-TypeData -force -TypeName System.IO.FileInfo -DefaultDisplayPropertySet Mode, LastWriteTime, Size, Name
-$objFSO = New-Object -com  Scripting.FileSystemObject
-Update-TypeData  -force -TypeName System.IO.DirectoryInfo -MemberName Size -MemberType ScriptProperty -Value { 
-    $folder = $objFSO.GetFolder($this.FullName)
-    if ($folder.SubFolders.Count -eq 0) {
-        $folder.Size | Get-FileSize
-    }
-    else {
-        ($folder.SubFolders | Measure-Object Size -Sum).Sum | Get-FileSize
-    }
-} 
-Update-TypeData -force -TypeName System.IO.DirectoryInfo -DefaultDisplayPropertySet Mode, LastWriteTime, Size, Name
- 
- 
- 
-
 function Get-RegexHelp {
     Import-Csv "C:\Scripts\ps1\string\regexHelptxt.csv" | ogv
     #ii "http://regexrenamer.sourceforge.net/help/regex_quickref.html"
