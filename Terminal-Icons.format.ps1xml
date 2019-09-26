@@ -84,11 +84,16 @@ https://github.com/DHowett/DirColors -->
 							</TableColumnItem>
 							<TableColumnItem>
 								<ScriptBlock>
-									"{0:N2} {1}" -f $(
-										if ($_.Length -lt 1kb) { $_.length, 'B' }
-										elseif ($_.length -lt 1mb) { ($_.length/1kb), 'KB' }
-										elseif ($_.length -lt 1gb) { ($_.length/1mb), 'MB' }
-									)
+                                    if ($_.GetType().Name -eq 'FileInfo'){
+									    "{0:N2} {1}" -f $(
+										    if ($_.Length -lt 1kb) { $_.length, 'B' }
+										    elseif ($_.length -lt 1mb) { ($_.length/1kb), 'KB' }
+										    elseif ($_.length -lt 1gb) { ($_.length/1mb), 'MB' }
+									    )
+                                    }
+                                    else{
+                                        $_.Length
+                                    }
 								</ScriptBlock>
 							</TableColumnItem>
 							<TableColumnItem>
