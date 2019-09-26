@@ -92,7 +92,24 @@ https://github.com/DHowett/DirColors -->
 									    )
                                     }
                                     else{
-                                        $_.Length
+                                        $objFSO = New-Object -com  Scripting.FileSystemObject
+	                                    $folder=$objFSO.GetFolder($_.FullName)
+	                                    if ($folder.SubFolders.Count -eq 0){
+		                                    $s = $folder.Size 
+                                            "{0:N2} {1}" -f $(
+			                                    if ($s -lt 1kb) { $s, 'B' }
+			                                    elseif ($s -lt 1mb) { ($s/1kb), 'KB' }
+			                                    elseif ($s -lt 1gb) { ($s/1mb), 'MB' }
+		                                    )
+	                                    }
+	                                    else{
+		                                    $s = ($folder.SubFolders | Measure-Object Size -Sum).Sum
+                                            "{0:N2} {1}" -f $(
+			                                    if ($s -lt 1kb) { $s, 'B' }
+			                                    elseif ($s -lt 1mb) { ($s/1kb), 'KB' }
+			                                    elseif ($s -lt 1gb) { ($s/1mb), 'MB' }
+		                                    )
+	                                    }
                                     }
 								</ScriptBlock>
 							</TableColumnItem>
@@ -131,11 +148,33 @@ https://github.com/DHowett/DirColors -->
 							<ListItem>
 								<Label>Length</Label>
 								<ScriptBlock>
-									"{0:N2} {1}" -f $(
-										if ($_.Length -lt 1kb) { $_.length, 'Bytes' }
-										elseif ($_.length -lt 1mb) { ($_.length/1kb), 'KB' }
-										elseif ($_.length -lt 1gb) { ($_.length/1mb), 'MB' }
-									)
+									if ($_.GetType().Name -eq 'FileInfo'){
+									    "{0:N2} {1}" -f $(
+										    if ($_.Length -lt 1kb) { $_.length, 'B' }
+										    elseif ($_.length -lt 1mb) { ($_.length/1kb), 'KB' }
+										    elseif ($_.length -lt 1gb) { ($_.length/1mb), 'MB' }
+									    )
+                                    }
+                                    else{
+                                        $objFSO = New-Object -com  Scripting.FileSystemObject
+	                                    $folder=$objFSO.GetFolder($_.FullName)
+	                                    if ($folder.SubFolders.Count -eq 0){
+		                                    $s = $folder.Size 
+                                            "{0:N2} {1}" -f $(
+			                                    if ($s -lt 1kb) { $s, 'B' }
+			                                    elseif ($s -lt 1mb) { ($s/1kb), 'KB' }
+			                                    elseif ($s -lt 1gb) { ($s/1mb), 'MB' }
+		                                    )
+	                                    }
+	                                    else{
+		                                    $s = ($folder.SubFolders | Measure-Object Size -Sum).Sum
+                                            "{0:N2} {1}" -f $(
+			                                    if ($s -lt 1kb) { $s, 'B' }
+			                                    elseif ($s -lt 1mb) { ($s/1kb), 'KB' }
+			                                    elseif ($s -lt 1gb) { ($s/1mb), 'MB' }
+		                                    )
+	                                    }
+                                    }
 								</ScriptBlock>
 							</ListItem>
 							<ListItem>
