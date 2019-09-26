@@ -22,7 +22,7 @@ Several PowerShell modules and functions that I use to improve productivity on t
 | touch | function | touch function in [helpers.psm1](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1) | PowerShell implementation of UNIX touch | via helpers.psm1 |
 | s+ | function | s+ function in [helpers.psm1](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1) | Build a comma-separated list of quoted strings from the provided arguments | via helpers.psm1 |
 | ql | function | ql function in [helpers.psm1](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1) | **q**uoted **l**ist -> build string array w/o the need to provide arguments in quotes | via helpers.psm1 |
-| qs | function | qs function in [helpers.psm1](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1) | **q**uoted **s**ist -> build a string based on "words" provided as an argument | via helpers.psm1 |
+| qs | function | qs function in [helpers.psm1](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1) | **q**uoted **s**tring -> build a string based on "words" provided as an argument | via helpers.psm1 |
 | Get-RegExHelp | function | Get-RegexHelp function in [helpers.psm1](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1) and [regexHelptxt.csv](https://github.com/DBremen/MyPowerShellSetup/blob/master/files/regexHelptxt.csv) | Opens a .csv file with RegEx documenation via Out-GridView | via helpers.psm1 |
 | pro | function | pro function in [helpers.psm1](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1) | Opens my profile (AllUsersAllHosts) in VSCode | via helpers.psm1 |
 
