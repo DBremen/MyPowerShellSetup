@@ -27,40 +27,204 @@ https://github.com/zloeber/WindowsSetupScripts
 
 # ***** BEGIN CUSTOMIZATION *****
 # PowerShell Modules to install
-# (Get-InstalledModule | select -expand name | where {$_ -notmatch 'AzureRM\..*'} | foreach {"'$_'"}) -join ",`n`t" | clip
+#(Get-Module -ListAvailable | Select-Object -Expand Name | Where-Object { $_ -notmatch 'AzureRM\..*' -and $_ -ne 'z' -and $_ -ne 'PSFZF' -and  $_-ne 'PSColor' } | ForEach-Object { "'$_'" }) -join ",`n`t"
 #//start-ModulesToBeInstalled
 $ModulesToBeInstalled = @(
+    'ADUser',
+    'Configuration',
+    'EZOut',
+    'PSGUI',
+    'PSReadLine',
+    'AppBackgroundTask',
+    'Appx',
+    'BitLocker',
+    'BitsTransfer',
+    'CimCmdlets',
+    'Defender',
+    'DeliveryOptimization',
+    'DirectAccessClientComponents',
+    'Dism',
+    'DnsClient',
+    'EventTracingManagement',
+    'International',
+    'iSCSI',
+    'ISE',
+    'Kds',
+    'Microsoft.PowerShell.Archive',
+    'Microsoft.PowerShell.Diagnostics',
+    'Microsoft.PowerShell.Host',
+    'Microsoft.PowerShell.LocalAccounts',
+    'Microsoft.PowerShell.Management',
+    'Microsoft.PowerShell.ODataUtils',
+    'Microsoft.PowerShell.Security',
+    'Microsoft.PowerShell.Utility',
+    'Microsoft.WSMan.Management',
+    'MMAgent',
+    'MsDtc',
+    'NetAdapter',
+    'NetConnection',
+    'NetDiagnostics',
+    'NetEventPacketCapture',
+    'NetLbfo',
+    'NetNat',
+    'NetQos',
+    'NetSecurity',
+    'NetSwitchTeam',
+    'NetTCPIP',
+    'NetworkConnectivityStatus',
+    'NetworkSwitchManager',
+    'NetworkTransition',
+    'PcsvDevice',
+    'PersistentMemory',
+    'PKI',
+    'PnpDevice',
+    'PrintManagement',
+    'ProcessMitigations',
+    'Provisioning',
+    'PSDesiredStateConfiguration',
+    'PSDiagnostics',
+    'PSScheduledJob',
+    'PSWorkflow',
+    'PSWorkflowUtility',
+    'ScheduledTasks',
+    'SecureBoot',
+    'SmbShare',
+    'SmbWitness',
+    'StartLayout',
+    'Storage',
+    'StorageBusCache',
+    'TLS',
+    'TroubleshootingPack',
+    'TrustedPlatformModule',
+    'VpnClient',
+    'Wdac',
+    'Whea',
+    'WindowsDeveloperLicense',
+    'WindowsErrorReporting',
+    'WindowsSearch',
+    'WindowsUpdate',
+    'WindowsUpdateProvider',
+    'LyncOnlineConnector',
+    'SkypeOnlineConnector',
+    'Plaster',
+    'PowerShellEditorServices',
+    'PowerShellEditorServices.VSCode',
+    'PSScriptAnalyzer',
+    'AutoRuns',
+    'Azure.AnalysisServices',
+    'Azure.Storage',
+    'AzureRM',
+    'AzureRM',
+    'BingWallpaper',
+    'BurntToast',
     'ChocolateyGet',
+    'Communary.FileExtensions',
+    'ConfluencePS',
     'DirColors',
+    'documentarian',
     'Emojis',
+    'Experimental.IO',
+    'FormatPowershellCode',
     'GetSQL',
+    'GetSTFolderSize',
     'Gridify',
     'ImportExcel',
+    'ImportExcel',
+    'ImportExcel',
+    'InstallModuleFromGitHub',
+    'InvokeBuild',
+    'Irregular',
+    'ISEModuleBrowserAddon',
+    'IsePackV2',
+    'ISERegex',
+    'IseSessionTools',
+    'jpsgit',
+    'Jump.Location',
+    'LINQ',
+    'MdbCommand',
+    'Microsoft.PowerShell.Operation.Validation',
     'MsftGraph',
+    'newtonsoft.json',
+    'OutTabulatorView',
+    'PackageManagement',
+    'PackageManagement',
+    'PackageManagement',
     'PackageManagement',
     'Pansies',
+    'Parse-Curl',
+    'Parse-Curl',
+    'Pester',
+    'Pester',
+    'Pester',
+    'Pipeworks',
+    'Plaster',
+    'platyPS',
+    'poke',
+    'PoshGist',
+    'posh-git',
+    'PoshRSJob',
+    'PoshRSJob',
+    'PoshRSJob',
+    'PoshRSJob',
+    'PoshRSJob',
+    'posh-with',
+    'PowerForensics',
+    'PowerShellCookbook',
+    'PowerShellCookbook',
     'PowerShellGet',
+    'PowerShellGet',
+    'PowerShellGet',
+    'PowerShellHumanizer',
+    'PowerShellISE-preview',
+    'PowerShellProTools',
+    'PSChart',
+    'pscognitiveservice',
+    'PSExcel',
+    'PSFramework',
+    'PSFramework',
+    'PSGraph',
+    'PSImageTools',
+    'PSJira',
+    'ps-menu',
+    'PSParallel',
     'PSProse',
+    'PSReadline',
+    'PSScriptAnalyzer',
+    'PsSearch',
     'PSSharedGoods',
+    'PSUtil',
     'PSWriteColor',
     'PSWriteHTML',
     'QRCodeGenerator',
+    'QRCodeGenerator',
+    'RoughDraft',
+    'SavePSToSP',
     'scraperion',
+    'ScriptBrowser',
+    'ScriptCop',
+    'ScriptingHelp',
+    'SearchLucene',
+    'SharePointPnP.PowerShell.Commands.Files.Recurse',
+    'SharePointPnPPowerShell2013',
+    'Show-Ast',
+    'ShowUI',
     'TabExpansionPlusPlus',
+    'TabExpansionPlusPlus',
+    'Terminal-Icons',
+    'ToolWindow',
     'UMN-Google',
     'unishell',
-    'WPFBot3000'
+    'UpdateInstalledModule',
+    'WorkdayApi',
+    'WPFBot3000',
+    'WPK'
 )
 #//end-ModulesToBeInstalled
 # PowerShell Scripts to install
 # (Get-InstalledScript | select -expand name | foreach {"'$_'"}) -join ",`n`t" | clip
 #//start-ScriptsToBeInstalled
 $ScriptsToBeInstalled = @(
-    'Compare-ObjectProperty',
-    'Measure-LastCommand',
-    'Out-PhoneticAlphabet',
-    'Wait-Action',
-    'Write-MyProgress'
+    
 )
 #//end-ScriptsToBeInstalled
 # Chocolatey packages to install
@@ -265,18 +429,18 @@ Function Update-SessionEnvironment {
     #ordering is important here, $user comes after so we can override $machine
     'Process', 'Machine', 'User' |
         % {
-        $scope = $_
-        Get-EnvironmentVariableNames -Scope $scope |
-            % {
-            Set-Item "Env:$($_)" -Value (Get-EnvironmentVariable -Scope $scope -Name $_)
+            $scope = $_
+            Get-EnvironmentVariableNames -Scope $scope |
+                % {
+                    Set-Item "Env:$($_)" -Value (Get-EnvironmentVariable -Scope $scope -Name $_)
+                }
         }
-    }
 
     #Path gets special treatment b/c it munges the two together
     $paths = 'Machine', 'User' |
         % {
-        (Get-EnvironmentVariable -Name 'PATH' -Scope $_) -split ';'
-    } | Select-Object -Unique
+            (Get-EnvironmentVariable -Name 'PATH' -Scope $_) -split ';'
+        } | Select-Object -Unique
     $Env:PATH = $paths -join ';'
 
     # PSModulePath is almost always updated by process, so we want to preserve it.
@@ -416,7 +580,6 @@ else {
         Write-Output "No scripts were found that needed to be installed."
     }
 }
-##add scripts
 
 
 if ($null -eq (get-command choco.exe -ErrorAction SilentlyContinue)) {
@@ -441,7 +604,9 @@ if ($ChocoInstalls.Count -gt 0) {
 else {
     Write-Output 'There were no packages to install!'
 }
-
+#Github PowerShell modules
+#Install-Module -Name InstallModuleFromGitHub
+#Get-InstalledModule
 <#
     Manually installed packages (not in chocolatey or packagemanager)
 #>
@@ -584,8 +749,3 @@ if ($CreatePowershellProfile) {
 }
 
 Pop-Location
-
-
-
-
-

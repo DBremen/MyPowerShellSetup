@@ -76,8 +76,8 @@ function Update-Content {
 }
 
 #get installed PowerShell modules
-$modulesToBeInstalled = (Get-InstalledModule | Select-Object -Expand Name |
-        Where-Object { $_ -notmatch 'AzureRM\..*' -and $_ -ne 'z' -and $_ -ne 'PSFZF' } | ForEach-Object { "'$_'" }) -join ",`n`t"
+$modulesToBeInstalled = (Get-Module -ListAvailable | Select-Object -Expand Name |
+        Where-Object { $_ -notmatch 'AzureRM\..*' -and $_ -ne 'z' -and $_ -ne 'PSFZF' -and  $_-ne 'PSColor' } | ForEach-Object { "'$_'" }) -join ",`n`t"
 $insert = @"
 `$ModulesToBeInstalled = @(
     $modulesToBeInstalled
