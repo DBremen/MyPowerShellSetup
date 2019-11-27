@@ -9,4 +9,4 @@
   - [PSFzf customizations](PSFzfCustomizations.md)
   - [Search](Search.md)
   - [Persistent history](History.md)
-  - [Windows Terminal profile][WindowsTerminal.md]
+  - [Windows Terminal profile](WindowsTerminal.md)
