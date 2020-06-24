@@ -5,6 +5,7 @@ Several PowerShell modules and functions that I use to improve productivity on t
 
 | Name | Type | Source | Description | Installation |
 | --- | --- | --- | --- | --- |
+| PSConsoleTheme | module | [GitHub](https://github.com/mmims/PSConsoleTheme) | Module to set colors in console based on themes (e.g. Dracula) | Install-Module PSConsoleTheme |
 | ps-menu | module | [GitHub](https://github.com/chrisseroka/ps-menu) | Simple powershell menu to render interactive console menu (used to build tools) | Install-Module PS-Menu |
 | Find-ClosestCommand | function | [GitHub Gist](https://gist.github.com/Jaykul/b8ed295d32ec2500b7becfed38308521) | Implementation of 'Did you mean?' for commands typed with the option to create aliases for mistyped commands via CommandNotFoundAction | [helpers.psm1/Measure-LevenshteinDistance](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1) and [Find-ClosestCommand](https://github.com/DBremen/MyPowerShellSetup/blob/master/helpers.psm1) , [profile.ps1](https://github.com/DBremen/MyPowerShellSetup/blob/master/profile.ps1) for custom CommandNotFoundAction |
 | PSColor | module | [GitHub](https://github.com/Davlind/PSColor) | Provides basic color highlighting for ~~files~~(I have removed this in order to make it compatible with Terminal-Icons), services, select-string etc. | Install-Module -Name PSColor [Modified version](https://github.com/DBremen/MyPowerShellSetup/blob/master/PSColor) |
