@@ -1,3 +1,6 @@
+using namespace System
+using namespace System.Management.Automation.Language
+using namespace Microsoft.PowerShell
 if ($host.Name -eq 'ConsoleHost' -or 'Visual Studio Code Host' ) {
     [Console]::OutputEncoding = [Text.UTF8Encoding]::UTF8
     Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
@@ -122,6 +125,44 @@ if ($host.Name -eq 'ConsoleHost' -or 'Visual Studio Code Host' ) {
                 $replacement)
         }
     }
+	
+	# adapted version of https://github.com/PowerShell/PSReadLine/issues/1593
+	$setPSReadLineKeyHandlerSplat = @{
+		Chord = 'ctrl+v'
+		BriefDescription = 'SmartPaste'
+		Description = (
+			'If pasting a string containing \ or / surround with quotes and escape. ' +
+			'Otherwise paste normally.')
+		ScriptBlock = {
+			param([Nullable[ConsoleKeyInfo]] $key, [object] $arg) end {
+
+				$clipText = Get-Clipboard
+
+				# Use Regex.IsMatch to avoid changing global `$matches` variable.
+				if ([regex]::IsMatch($clipText, '^(?<quote>''|").*\k<quote>$')) {
+					[PSConsoleReadLine]::Paste($key, $arg)
+					return
+				}
+
+				if ( !$clipText.Contains(' ') -or (!$clipText.Contains('\') -and !$clipText.Contains('/'))) {
+					[PSConsoleReadLine]::Paste($key, $arg)
+					return
+				}
+
+				[PSConsoleReadLine]::Insert("'")
+
+				if ($clipText.Contains("'")) {
+					[PSConsoleReadLine]::Insert(($clipText -replace "([\u2018\u2019\u201a\u201b'])", '$1$1'))
+				} else {
+					[PSConsoleReadLine]::Paste($key, $arg)
+				}
+
+				[PSConsoleReadLine]::Insert("'")
+			}
+		}
+	}
+
+	Set-PSReadLineKeyHandler @setPSReadLineKeyHandlerSplat
     Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
     Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
     Set-PSReadlineOption -HistorySearchCursorMovesToEnd
