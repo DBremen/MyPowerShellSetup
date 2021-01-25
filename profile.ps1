@@ -87,7 +87,7 @@ if ($host.Name -eq 'ConsoleHost') {
         }
     }
 }
-
+$host.UI.RawUI.BufferSize = New-Object System.Management.Automation.Host.Size(190,5000)
 cd "$env:USERPROFILE\Desktop"; Clear-Host; quote -Random
 "`n`n"
 Get-GitTip
