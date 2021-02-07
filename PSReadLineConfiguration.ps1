@@ -2,6 +2,16 @@ using namespace System
 using namespace System.Management.Automation.Language
 using namespace Microsoft.PowerShell
 if ($host.Name -eq 'ConsoleHost' -or 'Visual Studio Code Host' ) {
+    Import-Module PSReadline -RequiredVersion 2.2.0
+    Set-PSReadLineOption -EditMode Windows
+    if ($host.Version.Major -eq 7){
+        Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+    }
+    else{
+        Set-PSReadLineOption -PredictionSource History
+    }
+    Set-PSReadLineOption -Colors @{InlinePrediction = "$([char]0x1b)[36;7;238m]"}
+    Set-PSReadLineKeyHandler -Function AcceptSuggestion -Key 'ALT+r'
     [Console]::OutputEncoding = [Text.UTF8Encoding]::UTF8
     Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
     Set-PSReadlineOption -BellStyle None
