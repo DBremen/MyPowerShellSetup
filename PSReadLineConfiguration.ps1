@@ -1,7 +1,7 @@
 using namespace System
 using namespace System.Management.Automation.Language
 using namespace Microsoft.PowerShell
-if ($host.Name -eq 'ConsoleHost' -or 'Visual Studio Code Host' ) {
+if ($host.Name -eq 'ConsoleHost' -or  $host.Name -eq 'Visual Studio Code Host' ) {
     Import-Module PSReadline -RequiredVersion 2.2.0
     Set-PSReadLineOption -EditMode Windows
     if ($host.Version.Major -eq 7){
