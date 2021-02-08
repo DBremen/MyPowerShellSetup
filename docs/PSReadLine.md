@@ -10,4 +10,4 @@ gps powershell* | kill
 powershell -noprofile -command "Install-Module PSReadLine -Force -SkipPublisherCheck -AllowPrerelease"  
 ```
 
-Configuration loaded via profile [PSReadLine configuration](https://github.com/DBremen/MyPowerShellSetup/blob/master/PSReadlineConfiguration.ps1)
+Configuration loaded via profile [PSReadLine configuration](https://github.com/DBremen/MyPowerShellSetup/blob/master/PSReadLineConfiguration.ps1)
