@@ -17,7 +17,7 @@ $promptPrefix = @'
     $lastCmd = Get-History -Count 1
     if ($lastCmd -ne $null) {
         $diff = $lastCmd.EndExecutionTime - $lastCmd.StartExecutionTime
-        "{0}:{1}" -f [Math]::Round($diff.TotalSeconds), $diff.ToString('ff')
+        "{0}:{1} " -f [Math]::Round($diff.TotalSeconds), $diff.ToString('ff')
 })
 '@
 $GitPromptSettings.DefaultPromptPrefix = $promptPrefix

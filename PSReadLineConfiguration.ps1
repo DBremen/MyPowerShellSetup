@@ -12,6 +12,7 @@ if ($host.Name -eq 'ConsoleHost' -or  $host.Name -eq 'Visual Studio Code Host' )
     }
     Set-PSReadLineOption -Colors @{InlinePrediction = "$([char]0x1b)[36;7;238m]"}
     Set-PSReadLineKeyHandler -Function AcceptSuggestion -Key 'ALT+r'
+	Set-PSReadlineOption -PromptText "$("$([char]27)")[22;38;5;15;48;5;34m>_$("$([char]27)")[0m","$("$([char]27)")[22;38;5;15;48;5;13m>_$("$([char]27)")[0m"
     [Console]::OutputEncoding = [Text.UTF8Encoding]::UTF8
     Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
     Set-PSReadlineOption -BellStyle None
