@@ -87,7 +87,9 @@ if ($host.Name -eq 'ConsoleHost') {
         }
     }
 }
+Set-ConsoleTheme 'Material Darker'
 $host.UI.RawUI.BufferSize = New-Object System.Management.Automation.Host.Size(190,5000)
 cd "$env:USERPROFILE\Desktop"; Clear-Host; quote -Random
+$script:exanpdArchive = Expand-ArchiveAutomamtically
 "`n`n"
 Get-GitTip
