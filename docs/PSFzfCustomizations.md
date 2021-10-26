@@ -17,3 +17,4 @@ CTRL + t = search current directory with preview window (bat.exe):
 
 
 ![image](https://github.com/DBremen/MyPowerShellSetup/raw/master/screens/ctrltscreen.PNG)
+        
